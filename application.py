@@ -139,7 +139,7 @@ def books():
                                " LIKE :search OR LOWER(books.author) LIKE :search OR LOWER(books.year) LIKE :search"
                                , {'search': search1}).fetchall()
         else:
-            books = db.execute("SELECT * FROM books WHERE " + value + " LIKE :search",
+            books = db.execute("SELECT * FROM books WHERE LOWER(" + value + ") LIKE :search",
                                {'search': search1}).fetchall()
         return render_template('books.html', books=books, search=search, username=username)
     else:
