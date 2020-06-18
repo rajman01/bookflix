@@ -4,8 +4,6 @@ from flask import Flask, session, render_template, request, flash, redirect, url
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-os.environ["DATABASE_URL"] = 'postgres://rwsthezmrrypzj:81b33bc19d9c9dbfb371b5cde514e717c13d0d87c89912f725b0c5cf18527276@ec2-34-202-7-83.compute-1.amazonaws.com:5432/d8e5avgp6srogn'
-os.environ['KEY'] = "cPJ01FT2PGeWhJFMKKOgg"
 
 app = Flask(__name__)
 
