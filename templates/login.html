@@ -1,0 +1,37 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    login
+{% endblock %}
+
+{% block body %}
+<div class='center'>
+<h1>Login</h1>
+<form action="{{ url_for('login') }}" method="post">
+    {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {%endfor%}
+        {% endif %}
+        {% endwith %}
+    <div class="txt_field">
+        <input type='text' name="username" required>
+        <span></span>
+        <label>Username</label>
+        <label></label>
+    </div>
+    <div class="txt_field">
+        <input type='password'  name="password" required>
+        <span></span>
+        <label>password</label>
+    </div>
+    <button class='button'>Sign in</button>
+    <div class="signup_link">
+        Not a member? <a href="{{ url_for('sign_up') }}">Sign up</a>
+    </div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Your reviews
+{% endblock %}
+
+
+{% block body %}
+<div class="con">
+    {% if not reviews%}
+    <h1>You have'nt reviewed any book yet</h1>
+    {% else %}
+{% for review in reviews %}
+<div class="review">
+    <div class="details">
+        <b>Title: </b> {{review.title}}</br>
+        <b>Author: </b> {{review.author}}</br>
+        <b>Year published: </b>{{review.year}}</br>
+        <b>ISBN: </b> {{review.books}}</br>
+    </div>
+    <label><b>review:</b></label>
+    <p>{{review.reviews}}</p>
+    <label><b>rating:</b></label>
+    <p>{{review.ratings}}</p>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Sign_out</title>
+    <style>
+        .container{
+        text-align:center;
+        }
+        label.logo{
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <label class="logo">Bookflix</label>
+    <h3>You've been signed out</h3>
+    <a href="{{url_for('index')}}">Bookflix home</a></br>
+    or</br>
+    <a href="{{url_for('login')}}">Sign in again</a>
+</div>
+</body>
+</html>

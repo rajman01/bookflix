@@ -1,0 +1,46 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    sign_up
+{% endblock %}
+
+{% block body %}
+<div class='center'>
+    <h1>Sign up</h1>
+    <form action="{{ url_for('add_user') }}" method="post">
+        {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {%endfor%}
+        {% endif %}
+        {% endwith %}
+        <div class="txt_field">
+            <input type='text' name="fullname" required>
+            <span></span>
+            <label>Fullname</label>
+            <label></label>
+        </div>
+        <div class="txt_field">
+            <input type='text' name="username" required>
+            <label>Username</label>
+            <label></label>
+        </div>
+        <div class="txt_field">
+            <input type='password' name="password1"required>
+            <label>Password</label>
+        </div>
+        <div class="txt_field">
+            <input type='password' name="password2" required>
+            <span></span>
+            <label>Re-enter password</label>
+        </div>
+        <button class='button'>Submit</button>
+        <div class="signup_link">
+            Already have an account? <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </form>
+    </div>
+{% endblock %}

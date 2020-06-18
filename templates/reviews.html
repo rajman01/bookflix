@@ -1,0 +1,74 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    reviews
+{% endblock %}
+
+
+{% block body %}
+    <div class="con">
+        <div class="write">
+            <div class="details">
+                {%for detail in details%}
+                <b>Title: </b> {{detail.title}}</br>
+                <b>Author: </b> {{detail.author}}</br>
+                <b>Year published: </b>{{detail.year}}</br>
+                <b>ISBN: </b> {{detail.isbn}}</br>
+                <b>Average rating: </b>{{rating[0]}}</br>
+                <b>No of ratings: </b> {{rating[1]}}
+                {%endfor%}
+            </div>
+            
+            <form action="{{ url_for('add_review',isbn=isbn)}}" method="post">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Write review:</label>
+                    <textarea class="form-control" name="review" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                  </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Rating:</label>
+                  <select class="form-control" name="rating" id="exampleFormControlSelect1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+                <label>NB: You cant submit multiple review for the same book</label>
+              </form>
+              {% with messages = get_flashed_messages(with_categories=true)%}
+              {% if messages %}
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">
+                  {{ message }}
+              </div>
+              {%endfor%}
+              {% endif %}
+              {% endwith %}
+            </div>
+        
+        <div class="people">
+            {% if not reviews %}
+            <h1>sorry no reviews about this boook yet</h1>
+            {% else %}
+            {% for review in reviews%}
+            <div class="review">
+                <label><svg class="bi bi-person-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                    <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                  </svg>  {{review.username}}</label></br>
+                  <div class="personal">
+                  <label><b>review:</b></label>
+                  <p>{{review.reviews}}</p>
+                  <label><b>rating:</b></label>
+                  <p>{{review.ratings}}</p>
+                  </div>
+            </div>
+            {%endfor%}
+            {%endif%}
+            
+        </div>
+    </div>
+    {% endblock %}

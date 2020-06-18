@@ -1,0 +1,37 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    books
+{% endblock %}
+
+
+{% block body %}
+{% if not books %}
+<h1>No result found</h1>
+{%else%}
+<label>FROM SEARCH '{{search}}'</label>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Isbn</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Reviews</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+      <tr>
+        <td>{{book.isbn}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.year}}</td>
+        <td><a href="{{ url_for('reviews',isbn=book.isbn)}}">see reviews</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {%endif%}
+
+{% endblock %}
