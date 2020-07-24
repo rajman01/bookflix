@@ -1,0 +1,58 @@
+{%  extends "layout.html "%}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ legend }}</legend>
+                <div class="form-group">
+                    {{ form.isbn.label(class="form-control-label") }}
+                    {% if form.isbn.errors %}
+                    {{ form.isbn(class="form-control form-control-md is-invalid", list='datalist') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.isbn.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.isbn(class="form-control form-control-md", list='datalist', minlenght='1')}}
+                    {% endif %}
+                    <datalist id="datalist">
+                        {% for book in books %}
+                            <option value="{{book.isbn}}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    {{ form.content.label(class="form-control-label") }}
+                    {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.content(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.rating.label(class="form-control-label") }}
+                    {% if form.rating.errors %}
+                    {{ form.rating(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.rating.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.rating(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>Bookflix - {{ title }}</title>
+    {% else %}
+    <title>Bookflix</title>
+    {% endif %}
+</head>
+<body>
+
+        <header class="site-header">
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container">
+              <a class="navbar-brand mr-4" href="/">Bookflix</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                  <a class="nav-item nav-link" href="{{url_for('home')}}">Home</a>
+                  <a class="nav-item nav-link" href="{{url_for('about')}}">About</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if current_user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{{url_for('new_review')}}">Make Review</a>
+                    <a class="nav-item nav-link" href="{{url_for('account')}}">Account</a>
+                    <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+                    {% else %}
+                  <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+                  <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <main role="main" class="container">
+          <div class="row">
+            <div class="col-md-8">
+                {% with messages = get_flashed_messages(with_categories=true)%}
+                        {%  if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+              {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+                {% block review %}{% endblock %}
+              <div class="content-section search">
+                <h3>Search Bar</h3>
+                <p class='text-muted'>Search for your favorite books!
+                </p>
+                  <form method="POST" action="{{url_for('search')}}">
+                      <div class="form-group">
+                        <label for="search">Search</label>
+                        <input type='search' name="search" class="form-control" id="search" required>
+                      </div>
+                      <div class="form-group">
+                           <label for="type">Filter by </label>
+                            <select name="type" class="form-control" id="type">
+                              <option value="all">All</option>
+                              <option value="isbn">ISBN</option>
+                              <option value="author">Author</option>
+                              <option value="title">Title</option>
+                              <option value="year">Year</option>
+                            </select>
+                      </div>
+                      <div class="form-group">
+                          <input class="btn btn-outline-info" id="submit" name="submit" type="submit" value="Search">
+                      </div>
+                  </form>
+
+              </div>
+            </div>
+          </div>
+        </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('.custom-file-label').html(fileName);
+        });
+    </script>
+</body>
+</html>

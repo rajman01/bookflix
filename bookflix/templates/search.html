@@ -1,0 +1,48 @@
+{%  extends "layout.html "%}
+{% block content %}
+        {% if not books %}
+<h1>No result found</h1>
+{%else%}
+{% if search %}
+<label>Search result from '{{search}}'</label>
+{% else %}
+<label>Books by {{author}}</label>
+{% endif %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Isbn</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Reviews</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in books.items %}
+      <tr>
+        <td>{{book.isbn}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.year}}</td>
+        <td><a href="{{url_for('book_review',book_id=book.id)}}">See reviews</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {%endif%}
+{% for page_num in books.iter_pages(left_edge=1,right_edge=1, left_current=1, right_current=2) %}
+        {% if page_num %}
+        {% if books.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{url_for('search',page=page_num,search=search,type=type)}}">{{page_num}}</a>
+        {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{url_for('search',page=page_num,search=search,type=type)}}">{{page_num}}</a>
+        {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+
+        {% endfor %}
+
+
+{% endblock content %}

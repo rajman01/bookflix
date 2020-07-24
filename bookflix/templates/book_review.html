@@ -1,0 +1,95 @@
+{%  extends "layout.html "%}
+{% block content %}
+<article class="media content-section">
+          <div class="media-body">
+              <div class="article-metadata">
+               <h2 class="article-title">Book Info</h2>
+              </div>
+              <label>Title: {{ book.title }}</label><br>
+              <label><a class="article-title text-muted" href="{{ url_for('search',search=book.author,type='author') }}">Author:  {{ book.author }}</a></label><br>
+              <label>Isbn: {{ book.isbn }}</label><br>
+              <label>Year Published: {{ book.year }}</label><br>
+               <label>Average Rating: {{ rating[0] }}</label><br>
+               <label>Ratings Count: {{ rating[1] }}</label>
+          </div>
+</article>
+{% if book.reviews %}
+<h2>Reviews</h2>
+{% else %}
+<h2>No reviews yet</h2>
+{% endif %}
+{% for review in book.reviews %}
+ <article class="media content-section">
+            <img src="{{ url_for('static', filename='profile_pics/' + review.author.image_file) }}" class="rounded-circle article-img">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('user_reviews',user_id=review.user_id) }}">{{ review.author.username }}</a>
+              <small class="text-muted">{{ review.date_posted.strftime('%Y-%m-%d')  }}</small>
+            </div>
+              <p class="article-content">{{ review.review }}</p>
+              <label>Rating:
+                    {% for star in range(0, review.rating| int) %}
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                    {% endfor %}
+              </label>
+              {% if current_user == review.author %}
+              <a href="{{url_for('review',review_id=review.id,previous=previous)}}" class="float-right">Edit</a>
+              {% endif %}
+
+          </div>
+        </article>
+{% endfor %}
+        {% for page_num in reviews.iter_pages(left_edge=1,right_edge=1, left_current=1, right_current=2) %}
+        {% if page_num %}
+        {% if reviews.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{url_for('book_review',book_id=book.id,page=page_num)}}">{{page_num}}</a>
+        {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{url_for('book_review',book_id=book.id,page=page_num)}}">{{page_num}}</a>
+        {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+
+        {% endfor %}
+{% endblock content %}
+
+{% block review %}
+<div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ legend }}</legend>
+                <div class="form-group">
+                    {{ form.content.label(class="form-control-label") }}
+                    {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.content(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.rating.label(class="form-control-label") }}
+                    {% if form.rating.errors %}
+                    {{ form.rating(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.rating.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.rating(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock review %}
+

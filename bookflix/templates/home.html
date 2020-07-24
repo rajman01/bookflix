@@ -1,0 +1,36 @@
+{%  extends "layout.html "%}
+{% block content %}
+        {% for review in reviews.items %}
+        <article class="media content-section">
+            <img src="{{ url_for('static', filename='profile_pics/' + review.author.image_file) }}" class="rounded-circle article-img">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('user_reviews',user_id=review.user_id) }}">{{ review.author.username }}</a>
+              <small class="text-muted">{{ review.date_posted.strftime('%Y-%m-%d')  }}</small>
+            </div>
+            <h2><a class="article-title " href="{{url_for('review',review_id=review.id)}}">{{ review.book.title }}</a></h2>
+              <label><a class="article-title text-muted" href="{{ url_for('search',search=review.book.author,type='author') }}">by:  {{ review.book.author }}</a></label>
+
+              <p class="article-content">{{ review.review }}</p>
+              <label>Rating:
+                    {% for star in range(0, review.rating| int) %}
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                    {% endfor %}
+              </label>
+          </div>
+        </article>
+        {% endfor %}
+        {% for page_num in reviews.iter_pages(left_edge=1,right_edge=1, left_current=1, right_current=2) %}
+        {% if page_num %}
+        {% if reviews.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{url_for('home',page=page_num)}}">{{page_num}}</a>
+        {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{url_for('home',page=page_num)}}">{{page_num}}</a>
+        {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+
+        {% endfor %}
+
+{% endblock content %}

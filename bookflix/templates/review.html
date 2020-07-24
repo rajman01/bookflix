@@ -1,0 +1,51 @@
+{%  extends "layout.html "%}
+{% block content %}
+        <article class="media content-section">
+            <img src="{{ url_for('static', filename='profile_pics/' + review.author.image_file) }}" class="rounded-circle article-img">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('user_reviews',user_id=review.user_id) }}">{{ review.author.username }}</a>
+              <small class="text-muted">{{ review.date_posted.strftime('%Y-%m-%d')  }}</small>
+                {% if review.author == current_user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_review', review_id=review.id,previous=previous) }}">Update</a>
+                    <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+
+                </div>
+                {% endif %}
+            </div>
+            <h2 class="article-title">{{ review.book.title }}</h2>
+              <label><a class="article-title text-muted" href="{{ url_for('search',search=review.book.author,type='author') }}">by:  {{ review.book.author }}</a></label><br>
+              <label>Isbn: {{ review.book.isbn }}</label><br>
+              <label>Year Published: {{ review.book.year }}</label>
+
+              <p class="article-content">{{ review.review }}</p>
+              <label>Rating:
+                    {% for star in range(0, review.rating| int) %}
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                    {% endfor %}
+              </label>
+
+          </div>
+        </article>
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Review?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       <form action="{{ url_for('delete_review', review_id=review.id,previous=previous) }}" method="POST">
+           <input class="btn btn-danger" type="submit" value="Delete">
+       </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
