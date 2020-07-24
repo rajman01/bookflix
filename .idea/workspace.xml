@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f91202c0-39cb-4407-8406-ee1f993608b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bookflix/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/403.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/book_review.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/book_review.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/make_review.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/make_review.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/reset_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/reset_request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/reset_token.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/reset_token.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/review.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/review.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookflix/templates/user_reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookflix/templates/user_reviews.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1eyk9pUYSfqRhLiw5zuV0Jluiwg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alameen\Saved Games\Desktop\bookflix.2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.test (1)">
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bookflix.2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bookflix.2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bookflix" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\Alameen\Saved Games\Desktop\bookflix.2\test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f91202c0-39cb-4407-8406-ee1f993608b5" name="Default Changelist" comment="" />
+      <created>1595301072005</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595301072005</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="966" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595324076436">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="966" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1595324076436" />
+    <state width="776" height="221" key="GridCell.Tab.0.bottom" timestamp="1595458655060">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="776" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1595458655060" />
+    <state width="776" height="221" key="GridCell.Tab.0.center" timestamp="1595458655059">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="776" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1595458655059" />
+    <state width="776" height="221" key="GridCell.Tab.0.left" timestamp="1595458655059">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="776" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1595458655059" />
+    <state width="776" height="221" key="GridCell.Tab.0.right" timestamp="1595458655059">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="776" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1595458655059" />
+  </component>
+</project>
